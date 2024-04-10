@@ -85,6 +85,40 @@ class _LogInState extends State<LogIn> {
                                 hintStyle: AppWidget.semiboldTextFieldStyle(),
                                 prefixIcon: Icon(Icons.lock_outlined)),
                           ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            alignment: Alignment.topRight,
+                            child: Text(
+                              "Forgot Password?",
+                              style: AppWidget.LightTextFieldStyle(),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 100,
+                          ),
+                          Material(
+                            elevation: 5,
+                            borderRadius: BorderRadius.circular(20),
+                            child: Container(
+                              width: 200,
+                              padding: EdgeInsets.symmetric(vertical: 10),
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 85, 60, 60),
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Center(
+                                child: Text(
+                                  "LOGIN",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontFamily: "Poppins",
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     ),
