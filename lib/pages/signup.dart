@@ -5,13 +5,17 @@ import 'package:flutter/widgets.dart';
 import '../widget/widget_support.dart';
 
 class SignUp extends StatefulWidget {
-  SignUp({super.key});
+  const SignUp({super.key});
 
   @override
   State<SignUp> createState() => _SignUpState();
 }
 
 class _SignUpState extends State<SignUp> {
+  String email = "", password = "", name = "";
+  TextEditingController namecontroller = new TextEditingController();
+  TextEditingController passcontroller = new TextEditingController();
+    TextEditingController emailcontroller = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
