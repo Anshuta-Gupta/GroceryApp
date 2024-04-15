@@ -3,9 +3,16 @@ import 'package:flutter/material.dart';
 
 import 'pages/splashscreen.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: "AIzaSyCGvidJj_tMBe1CU7_HQdNqFAGFvh2dDlM",
+      appId: "1:337110290101:android:649bc4cd0c752b3faf38fc",
+      messagingSenderId: "337110290101",
+      projectId: "grocery-65d0b",
+    ),
+  );
   runApp(const MyApp());
 }
 

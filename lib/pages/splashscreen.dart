@@ -1,6 +1,5 @@
-
-import 'package:app1/pages/login.dart';
 import 'package:app1/pages/onboard.dart';
+import 'package:app1/pages/signup.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
