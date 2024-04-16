@@ -1,10 +1,10 @@
 import 'package:app1/pages/bottomnav.dart';
+import 'package:app1/pages/forgotpassword.dart';
 import 'package:app1/pages/signup.dart';
 import 'package:app1/widget/widget_support.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
@@ -20,21 +20,20 @@ class _LogInState extends State<LogIn> {
   TextEditingController userpasswordcontroller = new TextEditingController();
 
   userLogin() async {
-     Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const BottomNav()));
-    
     try {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const BottomNav()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             content: Text(
           "User Not Found",
           style: TextStyle(fontSize: 18, color: Colors.black),
         )));
       } else if (e.code == 'wrong-password') {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             content: Text(
           "Wrong Password \n Try Again",
           style: TextStyle(fontSize: 18, color: Colors.black),
@@ -99,6 +98,7 @@ class _LogInState extends State<LogIn> {
                           borderRadius: BorderRadius.circular(40)),
                       child: SingleChildScrollView(
                         child: Form(
+                          key: _formkey,
                           child: Column(
                             children: [
                               const SizedBox(
@@ -139,14 +139,23 @@ class _LogInState extends State<LogIn> {
                                     prefixIcon:
                                         const Icon(Icons.lock_outlined)),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Container(
                                 alignment: Alignment.topRight,
-                                child: Text(
-                                  "Forgot Password?",
-                                  style: AppWidget.LightTextFieldStyle(),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const ForgotPassword()));
+                                  },
+                                  child: Text(
+                                    "Forgot Password?",
+                                    style: AppWidget.LightTextFieldStyle(),
+                                  ),
                                 ),
                               ),
                               const SizedBox(
@@ -176,7 +185,7 @@ class _LogInState extends State<LogIn> {
                                         }
                                         userLogin();
                                       },
-                                      child: Text(
+                                      child: const Text(
                                         "LOGIN",
                                         style: TextStyle(
                                             color: Colors.white,
@@ -199,8 +208,10 @@ class _LogInState extends State<LogIn> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SignUp()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignUp()));
                     },
                     child: Text(
                       "Don't have an account? Sign up",
