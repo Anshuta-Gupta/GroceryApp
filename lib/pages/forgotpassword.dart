@@ -120,7 +120,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     },
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const LogIn()));

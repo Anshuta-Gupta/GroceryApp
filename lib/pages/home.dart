@@ -1,8 +1,6 @@
 import 'package:app1/pages/details.dart';
 import 'package:app1/widget/widget_support.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -18,42 +16,11 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.only(
-          top: 50.0,
+          top: 20.0,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(
-                    left: 20.0,
-                  ),
-                  child: Text(
-                    'Hello User, ',
-                    style: AppWidget.boldTextFieldStyle(),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(
-                    right: 20,
-                    left: 20.0,
-                  ),
-                  padding: const EdgeInsets.all(3),
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: const Icon(
-                    Icons.shopping_cart_outlined,
-                    color: Colors.white,
-                  ),
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 40,
-            ),
             Container(
               padding: const EdgeInsets.only(
                 left: 20.0,
@@ -241,14 +208,14 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              margin: EdgeInsets.only(left: 20, right: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Material(
                 elevation: 8.0,
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -258,26 +225,26 @@ class _HomeState extends State<Home> {
                         width: 100,
                         fit: BoxFit.cover,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Column(
                         children: [
-                          Container(
+                          SizedBox(
                             width: MediaQuery.of(context).size.width / 2,
                             child: Text(
                               "Italian Salad",
                               style: AppWidget.semiboldTextFieldStyle(),
                             ),
                           ),
-                          Container(
+                          SizedBox(
                             width: MediaQuery.of(context).size.width / 2,
                             child: Text(
                               "Brocolli with Cheese ",
                               style: AppWidget.LightTextFieldStyle(),
                             ),
                           ),
-                          Container(
+                          SizedBox(
                             width: MediaQuery.of(context).size.width / 2,
                             child: Text(
                               "₹250",

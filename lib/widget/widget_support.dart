@@ -17,6 +17,14 @@ class AppWidget {
         fontFamily: 'Poppins');
   }
 
+  static TitleTextFieldStyle() {
+    return const TextStyle(
+        color: Colors.black,
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+        fontFamily: 'Poppins');
+  }
+
   static LightTextFieldStyle() {
     return const TextStyle(
         color: Colors.black54,

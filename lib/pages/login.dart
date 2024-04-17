@@ -5,6 +5,7 @@ import 'package:app1/widget/widget_support.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
@@ -19,28 +20,34 @@ class _LogInState extends State<LogIn> {
   TextEditingController useremailcontroller = new TextEditingController();
   TextEditingController userpasswordcontroller = new TextEditingController();
 
-  userLogin() async {
+ userLogin() async {
     try {
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const BottomNav()));
+      await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+
+      // Save login status in shared preferences
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('loggedInBefore', true);
+
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const BottomNav()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            content: Text(
-          "User Not Found",
-          style: TextStyle(fontSize: 18, color: Colors.black),
-        )));
+          content: Text(
+            "User Not Found",
+            style: TextStyle(fontSize: 18, color: Colors.black),
+          ),
+        ));
       } else if (e.code == 'wrong-password') {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            content: Text(
-          "Wrong Password \n Try Again",
-          style: TextStyle(fontSize: 18, color: Colors.black),
-        )));
+          content: Text(
+            "Wrong Password \n Try Again",
+            style: TextStyle(fontSize: 18, color: Colors.black),
+          ),
+        ));
       }
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +153,7 @@ class _LogInState extends State<LogIn> {
                                 alignment: Alignment.topRight,
                                 child: GestureDetector(
                                   onTap: () {
-                                    Navigator.push(
+                                    Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
@@ -208,7 +215,7 @@ class _LogInState extends State<LogIn> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const SignUp()));

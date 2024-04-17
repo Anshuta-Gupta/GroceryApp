@@ -1,6 +1,9 @@
 import 'package:app1/pages/onboard.dart';
-import 'package:app1/pages/signup.dart';
+
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'bottomnav.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,9 +20,25 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _navigatetohome() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool loggedInBefore = prefs.getBool('loggedInBefore') ?? false;
+
+    // Delay for a short period to show the splash screen
     await Future.delayed(const Duration(milliseconds: 1500));
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Onboard()));
+
+    if (loggedInBefore) {
+      // If the user has logged in before, navigate to the home screen
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => BottomNav()),
+      );
+    } else {
+      // If it's the first time or the user hasn't logged in before, navigate to the onboarding screen
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Onboard()),
+      );
+    }
   }
 
   @override

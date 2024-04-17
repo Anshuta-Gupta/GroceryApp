@@ -1,6 +1,7 @@
 import 'package:app1/pages/order.dart';
 import 'package:app1/pages/profile.dart';
 import 'package:app1/pages/wallet.dart';
+import 'package:app1/widget/widget_support.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -36,17 +37,25 @@ class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          _getAppBarTitle(currentTapIndex),
+          style: AppWidget.TitleTextFieldStyle(),
+        ),
+        backgroundColor: Colors.white10,
+        actions: _getAppBarActions(currentTapIndex),
+      ),
       bottomNavigationBar: CurvedNavigationBar(
         height: 65,
         backgroundColor: Colors.white,
         color: Colors.black,
-        animationDuration: Duration(milliseconds: 500),
+        animationDuration: const Duration(milliseconds: 500),
         onTap: (int index) {
           setState(() {
             currentTapIndex = index;
           });
         },
-        items: [
+        items: const [
           Icon(
             Icons.home_outlined,
             color: Colors.white,
@@ -67,5 +76,54 @@ class _BottomNavState extends State<BottomNav> {
       ),
       body: pages[currentTapIndex],
     );
+  }
+
+  String _getAppBarTitle(int index) {
+    switch (index) {
+      case 0:
+        return 'Hello User,';
+      case 1:
+        return 'Order';
+      case 2:
+        return 'Wallet';
+      case 3:
+        return 'Profile';
+      default:
+        return '';
+    }
+  }
+
+  List<Widget> _getAppBarActions(int index) {
+    switch (index) {
+      case 0: // Home page
+        return [
+          Container(
+            margin: const EdgeInsets.only(right: 20.0),
+            padding: const EdgeInsets.all(3),
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: const Icon(
+              Icons.shopping_cart_outlined,
+              color: Colors.white,
+            ),
+          ),
+        ];
+      case 1: // Order page
+        return [
+          // Add actions specific to the Order page if needed
+        ];
+      case 2: // Wallet page
+        return [
+          // Add actions specific to the Wallet page if needed
+        ];
+      case 3: // Profile page
+        return [
+          // Add actions specific to the Profile page if needed
+        ];
+      default:
+        return [];
+    }
   }
 }
