@@ -38,11 +38,15 @@ class _BottomNavState extends State<BottomNav> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          _getAppBarTitle(currentTapIndex),
-          style: AppWidget.TitleTextFieldStyle(),
+        
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            _getAppBarTitle(currentTapIndex),
+            style: AppWidget.TitleTextFieldStyle(),
+          ),
         ),
-        backgroundColor: Colors.white10,
+        backgroundColor: Color.fromARGB(240, 241, 240, 221),
         actions: _getAppBarActions(currentTapIndex),
       ),
       bottomNavigationBar: CurvedNavigationBar(
