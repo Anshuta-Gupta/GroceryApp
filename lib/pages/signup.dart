@@ -1,8 +1,10 @@
 import 'package:app1/pages/bottomnav.dart';
 import 'package:app1/pages/login.dart';
+import 'package:app1/pages/service/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
+import 'package:random_string/random_string.dart';
 
 import '../widget/widget_support.dart';
 
@@ -31,6 +33,14 @@ class _SignUpState extends State<SignUp> {
             "Registered Successfully",
             style: TextStyle(fontSize: 20),
           )));
+      String Id = randomAlphaNumeric(10);
+      Map<String, dynamic> addUserInfo = {
+        "Name": namecontroller.text,
+        "Email": emailcontroller.text,
+        "Wallet": "0",
+        "Id": Id,
+      };
+      await DatabaseMethods().addUserDetail(addUserInfo, Id);
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => const BottomNav()));
     } on FirebaseException catch (e) {
