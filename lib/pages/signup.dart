@@ -20,7 +20,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController namecontroller = new TextEditingController();
   TextEditingController passcontroller = new TextEditingController();
   TextEditingController emailcontroller = new TextEditingController();
-
+ 
   final _formkey = GlobalKey<FormState>();
 
   registration() async {
@@ -61,7 +61,7 @@ class _SignUpState extends State<SignUp> {
       }
     }
   }
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -235,13 +235,13 @@ class _SignUpState extends State<SignUp> {
                       "Already have an account? Login",
                       style: AppWidget.semiboldTextFieldStyle(),
                     ),
-                  )
-                ],
+                   ),
+                ],                                                                                           
               ),
             ),
           )
         ],
-      ),
+      ),                                                                                                                       
     );
   }
 }

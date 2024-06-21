@@ -66,11 +66,11 @@ class _OnboardState extends State<Onboard> {
                     child: Column(
                       children: [
                         const SizedBox(height: 10.0),
-                        Image.asset(
+                        Image.asset(                                                                                       
                           contents[i].image,
                           height: 450,
-                          width: MediaQuery.of(context).size.width / 1.5,
-                          fit: BoxFit.fill,
+                          width: MediaQuery.of(context).size.width / 1.5,                     
+                          fit: BoxFit.fill,                                                                                              
                         ),
                         const SizedBox(height: 30.0),
                         Text(
@@ -80,7 +80,7 @@ class _OnboardState extends State<Onboard> {
                         const SizedBox(height: 20),
                         Text(
                           contents[i].description,
-                          style: AppWidget.LightTextFieldStyle(),
+                          style: AppWidget.lightTextFieldStyle(),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -133,7 +133,7 @@ class _OnboardState extends State<Onboard> {
                 );
               },
             ),
-          ),
+          ),                                                                                                
         ],
       ),
     );

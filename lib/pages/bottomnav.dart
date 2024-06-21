@@ -43,7 +43,7 @@ class _BottomNavState extends State<BottomNav> {
           padding: const EdgeInsets.all(8.0),
           child: Text(
             _getAppBarTitle(currentTapIndex),
-            style: AppWidget.TitleTextFieldStyle(),
+            style: AppWidget.titleTextFieldStyle(),
           ),
         ),
         backgroundColor: Color.fromARGB(240, 241, 240, 221),
@@ -131,3 +131,4 @@ class _BottomNavState extends State<BottomNav> {
     }
   }
 }
+

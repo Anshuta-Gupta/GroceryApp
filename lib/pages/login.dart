@@ -161,7 +161,7 @@ class _LogInState extends State<LogIn> {
                                   },
                                   child: Text(
                                     "Forgot Password?",
-                                    style: AppWidget.LightTextFieldStyle(),
+                                    style: AppWidget.lightTextFieldStyle(),
                                   ),
                                 ),
                               ),

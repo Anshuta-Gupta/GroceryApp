@@ -84,7 +84,7 @@ class _DetailsState extends State<Details> {
                     setState(() {});
                   },
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: BoxDecoration(                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
                         color: Colors.black,
                         borderRadius: BorderRadius.circular(8)),
                     child: const Icon(
@@ -100,7 +100,7 @@ class _DetailsState extends State<Details> {
             ),
             Text(
               "Italian tomato salad is a vibrant and refreshing dish that embodies the essence of Mediterranean cuisine. Made with ripe, juicy tomatoes, it celebrates the natural sweetness and tanginess of the fruit. Sliced or diced tomatoes are often paired with fresh basil leaves, creating a harmonious marriage of flavors and aromas. ",
-              style: AppWidget.LightTextFieldStyle(),
+              style: AppWidget.lightTextFieldStyle(),
               maxLines: 3,
             ),
             const SizedBox(
@@ -110,10 +110,7 @@ class _DetailsState extends State<Details> {
               children: [
                 Text(
                   "Delivery Time",
-                  style: AppWidget.LightTextFieldStyle(),
-                ),
-                const SizedBox(
-                  width: 5,
+                  style: AppWidget.lightTextFieldStyle(),
                 ),
                 const Icon(
                   Icons.alarm,

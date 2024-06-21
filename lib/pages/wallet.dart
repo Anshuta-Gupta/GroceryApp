@@ -22,7 +22,7 @@ class _WalletState extends State<Wallet> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Divider(),
+            const Divider(),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               width: MediaQuery.of(context).size.width,
@@ -43,7 +43,7 @@ class _WalletState extends State<Wallet> {
                     children: [
                       Text(
                         "Your Wallet",
-                        style: AppWidget.LightTextFieldStyle(),
+                        style: AppWidget.lightTextFieldStyle(),
                       ),
                       const SizedBox(
                         height: 5,
@@ -57,7 +57,7 @@ class _WalletState extends State<Wallet> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               children: [
                 Padding(
@@ -83,19 +83,19 @@ class _WalletState extends State<Wallet> {
                 buildPaymentButton("₹ 1500", "1500"),
               ],
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             ElevatedButton(
               onPressed: () {
                 // Add money button pressed
               },
               style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                 backgroundColor: Colors.teal,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
-              child: Text(
+              child: const Text(
                 "Add Money",
                 style: TextStyle(
                   color: Colors.white,
@@ -117,7 +117,7 @@ class _WalletState extends State<Wallet> {
       },
       style: ButtonStyle(
         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-          EdgeInsets.all(5),
+          const EdgeInsets.all(5),
         ),
         backgroundColor: MaterialStateProperty.all<Color>(
           Colors.transparent,
@@ -133,7 +133,7 @@ class _WalletState extends State<Wallet> {
       ),
       child: Text(
         label,
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 16,
         ),
@@ -164,7 +164,7 @@ class _WalletState extends State<Wallet> {
       if (paymentResult != null) {
         showDialog(
           context: context,
-          builder: (_) => AlertDialog(
+          builder: (_) => const AlertDialog(
             content: Column(
               children: [
                 Row(
@@ -183,7 +183,7 @@ class _WalletState extends State<Wallet> {
       } else {
         showDialog(
           context: context,
-          builder: (_) => AlertDialog(
+          builder: (_) => const AlertDialog(
             content: Text("Payment Cancelled"),
           ),
         );
@@ -198,7 +198,7 @@ class _WalletState extends State<Wallet> {
   Future<Map<String, dynamic>> createPaymentIntent(
       String amount, String currency) async {
     try {
-      final secretKey =
+      const secretKey =
           'sk_test_51P8xV4SEHgPF7vj5M5epb3UYO38EEkHYYtAEpK7140pp0QTIYsSltyW0A0IS6rY0jUgs5n0MMtmAfUdY73Ibytq0002dyJNoq6';
       final response = await http.post(
         Uri.parse('https://api.stripe.com/v1/payment_intents'),
@@ -212,7 +212,7 @@ class _WalletState extends State<Wallet> {
           'payment_method_types[]': 'card',
         },
       );
-
+                                                                                                                                                                 
       print('Payment Intent Body: ${response.body.toString()}');
       return jsonDecode(response.body);
     } catch (err) {
@@ -226,3 +226,4 @@ class _WalletState extends State<Wallet> {
     return calculatedAmount;
   }
 }
+                                                                      

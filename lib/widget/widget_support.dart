@@ -9,7 +9,7 @@ class AppWidget {
         fontFamily: 'Poppins');
   }
 
-  static HeadlineTextFieldStyle() {
+  static headlineTextFieldStyle() {
     return const TextStyle(
         color: Colors.black,
         fontSize: 24,
@@ -17,7 +17,7 @@ class AppWidget {
         fontFamily: 'Poppins');
   }
 
-  static TitleTextFieldStyle() {
+  static titleTextFieldStyle() {
     return const TextStyle(
         color: Colors.black,
         fontSize: 24,
@@ -25,7 +25,7 @@ class AppWidget {
         fontFamily: 'Poppins');
   }
 
-  static LightTextFieldStyle() {
+  static lightTextFieldStyle() {
     return const TextStyle(
         color: Colors.black54,
         fontSize: 15,

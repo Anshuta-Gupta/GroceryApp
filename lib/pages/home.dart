@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
               ),
               child: Text(
                 'Delicious Food',
-                style: AppWidget.HeadlineTextFieldStyle(),
+                style: AppWidget.headlineTextFieldStyle(),
               ),
             ),
             Container(
@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
               ),
               child: Text(
                 'Discover and Get Great Food',
-                style: AppWidget.LightTextFieldStyle(),
+                style: AppWidget.lightTextFieldStyle(),
               ),
             ),
             const SizedBox(
@@ -82,7 +82,7 @@ class _HomeState extends State<Home> {
                               ),
                               Text(
                                 "Fresh and Healthy",
-                                style: AppWidget.LightTextFieldStyle(),
+                                style: AppWidget.lightTextFieldStyle(),
                               ),
                               Text(
                                 "₹250",
@@ -119,7 +119,7 @@ class _HomeState extends State<Home> {
                             ),
                             Text(
                               "Fresh and Healthy",
-                              style: AppWidget.LightTextFieldStyle(),
+                              style: AppWidget.lightTextFieldStyle(),
                             ),
                             Text(
                               "₹250",
@@ -155,7 +155,7 @@ class _HomeState extends State<Home> {
                             ),
                             Text(
                               "Fresh and Healthy",
-                              style: AppWidget.LightTextFieldStyle(),
+                              style: AppWidget.lightTextFieldStyle(),
                             ),
                             Text(
                               "₹250",
@@ -191,7 +191,7 @@ class _HomeState extends State<Home> {
                             ),
                             Text(
                               "Fresh and Healthy",
-                              style: AppWidget.LightTextFieldStyle(),
+                              style: AppWidget.lightTextFieldStyle(),
                             ),
                             Text(
                               "₹250",
@@ -241,7 +241,7 @@ class _HomeState extends State<Home> {
                             width: MediaQuery.of(context).size.width / 2,
                             child: Text(
                               "Brocolli with Cheese ",
-                              style: AppWidget.LightTextFieldStyle(),
+                              style: AppWidget.lightTextFieldStyle(),
                             ),
                           ),
                           SizedBox(
@@ -372,7 +372,8 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-      ],
+      ],   
     );
   }
 }
+                                                                                                                                                                                                     
